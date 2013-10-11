@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "onboarding patterns",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Simple extension used to test onboarding patterns.",
+    "description": "The description of the application"
+  }
+}
