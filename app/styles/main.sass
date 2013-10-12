@@ -1,5 +1,55 @@
 // Will be compiled down to a single stylesheet with your sass files
-@import "hint.css/src/hint"
+@import "hint.css/src/hint.scss"
+// @import "../bower_components/hint.css/src/hint.scss"
 
-html
-    // Defaults css for cssmin process
+#appcues-banner
+    color: #444
+    text-align: center
+    background: #C8ECF3
+    margin-top: -5px
+    padding: 10px 0
+    border-bottom: 1px solid #ddd
+    font-size: 13px
+
+    a
+        text-decoration: underline
+        color: blue
+        cursor: pointer
+
+$composeZIndex: 10000
+#appcues-compose-mask
+    background-color: rgba(0, 0, 0, 0.8)
+    z-index: $composeZIndex
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+
+#appcues-compose-message
+    z-index: $composeZIndex + 1
+    position: absolute
+    color: white
+    width: 300px
+
+    h2
+        font-size: 30px
+        margin: 0
+        -webkit-font-smoothing: antialiased
+
+    p
+        font-size: 14px
+        -webkit-font-smoothing: antialiased
+        margin-bottom: 40px
+
+    a
+        text-decoration: underline
+        cursor: pointer
+
+    .appcues-button
+        width: 120px
+        font-weight: normal
+        height: 38px
+        line-height: 38px
+        font-size: 16px
+        cursor: pointer
