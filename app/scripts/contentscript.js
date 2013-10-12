@@ -75,17 +75,26 @@
         });
         window.setInterval(function() {
           return setMsgPosition($msg, $target);
-        }, 400);
+        }, 100);
         return setMsgPosition($msg, $target);
       });
     }
   };
 
-  _ref = ['blocker'];
-  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-    pattern = _ref[_i];
-    if (typeof patterns[pattern] === "function") {
-      patterns[pattern]();
+  chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    var _ref;
+    log("Updating localStorage");
+    console.log(request);
+    return localStorage['loadPattern'] = (_ref = request.isActive) != null ? _ref : false;
+  });
+
+  if (localStorage['loadPattern'] !== 'false') {
+    _ref = ['blocker'];
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      pattern = _ref[_i];
+      if (typeof patterns[pattern] === "function") {
+        patterns[pattern]();
+      }
     }
   }
 

@@ -69,10 +69,16 @@ patterns =
 
             window.setInterval ->
                 setMsgPosition($msg, $target)
-            , 400
+            , 100
 
             setMsgPosition $msg, $target
 
 
-for pattern in ['blocker']
-    patterns[pattern]?()
+chrome.runtime.onMessage.addListener (request, sender, sendResponse) ->
+    log "Updating localStorage"
+    console.log request
+    localStorage['loadPattern'] = request.isActive ? false
+
+unless localStorage['loadPattern'] is 'false'
+    for pattern in ['blocker']
+        patterns[pattern]?()
